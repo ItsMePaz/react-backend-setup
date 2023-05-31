@@ -7,11 +7,11 @@ import personRouter from "./routes/personRouter.js";
 const app = express();
 
 async function connectToDB(url) {
-  await mongoose.connect(config.MONGODB_URI);
+  await mongoose.connect(url);
   console.log("Connected to DB");
 }
 
-connectToDB;
+connectToDB(config.MONGODB_URI);
 
 app.use(express.json());
 app.use(cors());
